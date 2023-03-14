@@ -14,7 +14,7 @@ void calibrateJoystick(){
 }
 
 
-void getJoystick(){
+void runJoystick(){
  // int[2] dirs= {0,0};
   x = analogRead(joyX);
   y = analogRead(joyY);
@@ -27,14 +27,16 @@ void getJoystick(){
   if(y > centY + sens) dirY = -1; //negY
   else if (y < centY - sens) dirY = 1; //posY
   else dirY = 0;
-    Serial.print(x);
-    Serial.print(", ");
-    Serial.print(y);
+   // Serial.print(x);
+   // Serial.print(", ");
+   // Serial.print(y);
 
-    Serial.print(": ");
+    //Serial.print(": ");
 
+    Serial.print("X Direction: ");
     Serial.print(dirX);
     Serial.print(", ");
+    Serial.print("Y Direction: ");
     Serial.print(dirY);
     Serial.print("\n");
     Serial.print("\n");
@@ -47,6 +49,12 @@ void getJoystick(){
     Serial.print(dirY);
     Serial.print("\n");
   }
+}
 
+int getX(){
+  return dirX;
+}
 
+int getY(){
+  return dirY;
 }
